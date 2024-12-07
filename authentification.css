@@ -1,0 +1,66 @@
+/* AUTHENTIFICATION PAGE */
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+#container{
+    display: flex;
+    padding: 20px 30px ;
+    height: 100vh;
+    width: 100vw;
+    justify-content: center;
+    align-items: center;
+}
+.form-container{
+    /* border: 1px solid red; */
+    padding: 5px;
+    width: 400px;
+    height:600px;
+    align-content: center;
+    text-align: center;
+    background-color: rgba(27, 8, 235, 0.228);
+    
+    border-radius: 15px;
+    /* box-shadow: 2px 1px 5px 4px rgba(0, 0, 0, 0.67); */
+    box-shadow: 2px 1px 5px 4px rgba(0, 0, 0, 0.52);
+
+}
+
+h2{
+    margin-bottom: 10px;
+}
+
+input{
+    display: flex;
+    width: 97%;
+    margin: 10px 5px;
+    text-align: center;
+    height: 50px;
+    border-radius: 10px;
+    border: none;
+    font-size: 16px;
+}
+.switch{
+    margin-top: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    
+}
+button{
+    margin: 5px 10px ;
+    height: 30px;
+    width: 100px;
+    border-radius: 10px;
+    border: none;
+    font-size: 16px;
+    font-weight: bold;
+}
+.hide{
+    display: none;
+    
+}
+.display{
+    display: block;
+}

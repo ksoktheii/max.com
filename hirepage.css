@@ -1,0 +1,93 @@
+*{
+    padding: 0;
+    margin: 0;
+}
+#main{
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    /* border: 3px solid green; */
+}
+.profile{
+    height: 100vh;
+    width: 15vw;
+    border: 1px solid blue;
+    display: grid;
+    justify-content: center;
+}
+.content{
+    height: 100vh;
+    width: 85vw;
+    /* border: 1px solid red; */
+}
+#account{
+    border: 1px solid yellow;
+    height:20%;
+    width: inherit;
+    display: grid;
+    justify-content: center;
+}
+.photo{
+    height: 14vh;
+    width: inherit;
+    border: 1px solid red;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+#profile-photo{
+    border: 1px solid rgb(1, 1, 0);
+    width: 90px;
+    height: 90px;
+    border-radius: 50%;
+    margin: 0 auto;
+    object-fit: cover;
+}
+#edit-profile{
+    margin-right:  2px;
+}
+.user-name{
+    height:5vh;
+    width: inherit;
+    border: 1px solid blue;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.user-name p{
+    width: inherit;
+    height: inherit;
+}
+
+/* Navigaiton */
+#hire,#status {
+    height:20%;
+    margin: 0;
+    border: 2px solid green;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+#hire :hover{
+    background-color: rgb(186, 190, 190);
+}
+#container ul{
+
+}
+/* Media Queries for responsive profile photo */
+@media (max-width: 768px) {
+    #profile-photo {
+        width: 70px; /* Reduce size on smaller screens */
+        height: 70px;
+    }
+}
+
+@media (max-width: 480px) {
+    #profile-photo {
+        width: 60px; /* Further reduce size on very small screens */
+        height: 60px;
+    }
+}

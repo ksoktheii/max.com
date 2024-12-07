@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <form id="myForm" name="myForm" target="_self" enctype="multipart/form-data" autocomplete="on" onsubmit="return validateForm()">
+        <label for="username">Username:</label>
+        <input type="text" id="username" name="username" required>
+        <br>
+        <label for="password">Password:</label>
+        <input type="password" id="password" name="password" required>
+        <br>
+        <label for="email">Email:</label>
+        <input type="email" id="email" name="email" required>
+        <br>
+        <label for="file">Upload a file:</label>
+        <input type="file" id="file" name="file">
+        <br>
+        <input type="submit" value="Submit">
+    </form>
+    <script>
+        
+        // The onsubmit attribute
+        function validateForm(){
+            var userName = document.getElementById("username").value;
+            var password  = document.getElementById("password").value;
+            var email = document.getElementById("email").value;
+
+            if(userName ==="" && password ==="" &&email ==="" ){
+                alert("No empty boxes accepted!!");
+                return false;
+            }
+            return true;
+        }
+
+        // action and method
+        document.getElementById("myForm").action ="/new";
+        document.getElementById("myForm").method ="POST";
+
+        // file upload handling
+        var fileInput= document.getElementById("file");
+        fileInput.addEventListener('change',function(){
+            
+        })
+    </script>     
+</body>
+</html>

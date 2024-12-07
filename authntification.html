@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<link rel="stylesheet" href="authentification.css">
+<body>
+    
+    <section id="container">
+        <div class="form-container" >
+            <h2>Sign-In/Sign-Up</h2>
+            <form id="sign-in-form" name="sign-in-form" onsubmit="handleLogin()" >
+                <div id="form-heading" >
+                    <h3>Log-In</h3>
+                </div>   
+                <input type="email" name="email" placeholder="input email" required >
+                <input type="password" name="password" placeholder="input password" required >
+                <input type="submit" value="submit" id="loginBtn" >
+                <!-- <button id="loginBtn" onsubmit="" ></button> -->
+                <div id="reset" >
+                    <p>Forgot Password? <a href="" onclick="handleReset()" >click</a> here to reset</p>
+                </div>
+            </form>
+            <form id="sign-up-form" name="sign-up-form" onsubmit="handleSignUp()" >
+                <div id="form-heading" >
+                    <h3>Sign-Up</h3>
+                </div>
+                <input type="text" name="firstName" placeholder="input first name" required >
+                <input type="text" name="secondName" placeholder="input second name" required>
+                <input type="email" name="email" placeholder="input email" required >
+                <input type="password" name="password" placeholder="input password" required >
+                <input type="submit" name="submit" value="submit-details" id="signUpBtn" >
+                <div>
+                    <p>Already have an account? <span onclick="switchLogin()" style="color: blue;" >Sign-in</span> </p>
+                </div>
+            </form>
+            <div class="switch" >
+                <button onclick="switchLogin()" >Log-In</button>
+                <button onclick="switchSignup()" >Sign-Up</button>
+            </div>
+            
+        </div>
+    </section>
+
+    <script>
+        window.onload= function(){
+            let signUp = document.getElementById("sign-up-form");
+            signUp.classList.add("hide");
+        };
+        
+        function switchLogin(){
+            let aciveLogin = document.activeElement;
+            let formToHide = document.getElementById("sign-up-form");
+            let formToSHow = document.getElementById("sign-in-form");
+            if(aciveLogin){
+                formToHide.style.display = "none";
+                formToSHow.style.display ="block";
+            }
+            console.log("Switched to login"); 
+        }
+        
+        function handleLogin(){
+            let p = event.target.children;
+            let signInDetails =[p.email.value,p.password.value];
+            console.log(signInDetails);
+            
+            let signInVerification = localStorage.getItem("signUpDetails");
+            let verificationDetails = signInVerification.split(",")
+            console.log(verificationDetails);
+
+            var verification= signInDetails.every(value=>verificationDetails.includes(value));
+            if (verification) {
+                document.getElementById("sign-in-form").action ="./hirepage.html";
+                document.getElementById('sign-in-form').method ="POST";
+                console.log("Verification passed");
+            }else{
+                alert("Incorrect details!!, please enter valid email and password!!")
+                console.log("Verification failed");
+            }
+        };
+
+        function handleReset(){
+            console.log("Reset link clicked");
+        };
+
+        function switchSignup(){
+            let activeSignup= document.activeElement;
+
+            if(activeSignup){
+                let formToHide = document.getElementById("sign-in-form");
+                let formToSHow = document.getElementById("sign-up-form");
+                formToHide.style.display="none";
+                formToSHow.style.display ="block";
+            }
+            console.log("Switched to signup"); 
+        }
+
+        function handleSignUp(){
+            var p = event.target.children;
+            let signUpDetails = [p.firstName.value,p.secondName.value,p.email.value,p.password.value];
+            console.log(signUpDetails);
+            localStorage.setItem("signUpDetails",signUpDetails);                    
+        };
+    </script>
+</body>
+</html>
