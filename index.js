@@ -70,6 +70,12 @@ function handleForm(e){
 let downloadCv = document.getElementById("download-cv");
 downloadCv.onclick=()=>{
     console.log("Download cv button clicked");  
+    const link =  document.createElement("a");
+    link.href= "files/Mycv.docx";
+    link.download= "Mycv.docx";
+    document.body.appendChild(link);
+    link.click();
+    document.body.removeChild(link);
 };
 
 let innerFill= document.querySelector(".inner-fill");
